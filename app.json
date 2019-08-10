@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Kontorspersonal",
+    "description": "Anlita ekonomipersonal online",
+    "privacy": "public",
+    "scheme": "kontorspersonal",
+    "sdkVersion": "32.0.0",
+    "platforms": ["ios", "android"],
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/icons/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "se.kontorspersonal.kontorspersonal",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Kontorspersonal behöver veta din plats för att underlätta sökningar och ge mera relevanta resultat som passar bättre dina behov.",
+        "NSCameraUsageDescription": "Kontorspersonal behöver använda din kamera för att kunna ta bilder för din profil."
+      }
+    },
+    "android": {
+      "package": "se.kontorspersonal.kontorspersonal",
+      "versionCode": 2
+    }
+  }
+}

@@ -1,0 +1,3 @@
+iphone4s: 76ebdef243d7c07c2331afe578bc5129a70ff07b
+iphone6:  57d8ab11d79a951528eb88d3daef133951191e1f
+ipad:     3dfbdfc49ea93da2ed7b91d980dab85dbddd3456

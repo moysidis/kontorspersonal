@@ -1,0 +1,6 @@
+This needs to be installed first:
+npm install -g react-native-cli
+
+npm install react-native-scrollable-tab-view --save
+npm install react-native-underline-tabbar --save
+npm install react-native-phone-call --save

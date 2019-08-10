@@ -1,0 +1,56 @@
+1. Run
+	exp build:ios
+	Build the app by letting expo do all the settings
+
+	Remove the distribution - push certificate and the provisioning profile, keep the App ID.
+
+(cd c:\OpenSSL-Win64\bin)
+
+2. Create the request
+	- create the key
+	.\openssl genrsa -out kontorspersonal.key 2048
+	- create the request
+	.\openssl req -new -key kontorspersonal.key -out kontorspersonal.certSigningRequest -subj "/emailAddress=bmoy69@gmail.com, CN=Vasilieios Moysidis, C=GR"
+
+3. Create certificate 
+	- select the Production App Store and Ad Hoc option.
+	- upload request kontorspersonal.certSigningRequest
+	- download certificate 
+	- rename to kontorspersonal.cer 
+
+4. Edit App ID
+	- enable push  notifications
+	- create push certificate - production SSL
+	- upload request kontorspersonal.certSigningRequest
+	- download the certificate
+	- rename it to kontorspersonalpush.cer
+
+(-. Add devices UDID if you have not done that already)
+
+
+5. Create provisioning profile 
+	- select Ad Hoc option.
+	- select the kontorspersonal.cer certificate you created above
+	- select the devices you want it to run on
+	
+
+6. Create p12 file
+	.\openssl x509 -in kontorspersonal.cer -inform DER -out kontorspersonal.pem -outform PEM
+	.\openssl pkcs12 -export -inkey kontorspersonal.key -in kontorspersonal.pem -out kontorspersonal.p12
+
+	.\openssl x509 -in kontorspersonalpush.cer -inform DER -out kontorspersonalpush.pem -outform PEM
+	.\openssl pkcs12 -export -inkey kontorspersonal.key -in kontorspersonalpush.pem -out kontorspersonalpush.p12
+
+	password: bmoy
+
+7. Move the created files in the /expo projects/(project)/apple folder
+	kontorspersonal.p12
+	kontorspersonalpush.p12
+	kontorspersonal.mobileprovision
+8. Run
+	exp build:ios -c
+	- ? How would you like to upload your credentials?
+ 	    I will provide all the credentials and files needed, Expo does limited validation
+	- Upload p12 file ./apple/kontorspersonal.p12
+	- Upload p12 file ./apple/kontorspersonalpush.p12
+	- Upload provisioning file ./apple/kontorspersonal.mobileprovision
